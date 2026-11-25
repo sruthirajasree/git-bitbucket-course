@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Command cheatsheet</title><link rel="stylesheet" href="../assets/style.css"></head><body><main><nav class="top"><a href="../index.html">Syllabus</a><a href="handbook.html">Handbook</a><a href="glossary.html">Glossary</a><a href="cheatsheet.html">Cheatsheet</a><a href="undo-ladder.html">Undo ladder</a><a href="decision-tree.html">Decision tree</a><a href="pr-checklist.html">PR checklist</a></nav><h1>Command cheatsheet</h1><p>The commands from the course, grouped by purpose.</p><h2>Look</h2><pre><code>git status -sb
+git log --oneline --graph --decorate --all -15
+git diff / git diff --staged / git diff origin/staging...HEAD
+git blame -L a,b f ; git log -S&quot;str&quot; ; git reflog</code></pre><h2>Daily loop</h2><pre><code>git switch staging &amp;&amp; git pull --ff-only
+git switch -c feature/PROJ-N-desc
+git add -p ; git commit -m &quot;PROJ-N: msg&quot;
+git push -u origin HEAD</code></pre><h2>Sync</h2><pre><code>git fetch --prune
+git pull --rebase | git pull --ff-only
+git merge origin/staging | git rebase origin/staging
+git push --force-with-lease   # only after rewriting your own branch</code></pre><h2>Conflict</h2><pre><code>git status ; edit ; git add f ; git commit | git rebase --continue
+git merge --abort | git rebase --abort | git cherry-pick --abort</code></pre><h2>Park work</h2><pre><code>git stash push -u -m msg ; git stash list ; git stash pop
+git worktree add ../x -b bugfix/PROJ-N origin/staging</code></pre><h2>Undo / recover</h2><pre><code>git restore f ; git restore --staged f
+git reset --soft|--mixed|--hard HEAD~1
+git revert &lt;sha&gt; ; git revert -m 1 &lt;merge-sha&gt;
+git reflog ; git reset --hard HEAD@{n} ; git reset --hard ORIG_HEAD</code></pre><h2>Rewrite / copy</h2><pre><code>git commit --amend ; git rebase -i origin/staging
+git reset --soft origin/staging &amp;&amp; git commit -m ...
+git cherry-pick -x &lt;sha&gt; ; git rebase --onto origin/staging &lt;oldbase&gt; branch</code></pre><h2>Cleanup / release</h2><pre><code>git branch -d x ; git branch -D x ; git push origin --delete x
+git tag -a v1.0.0 -m msg ; git push origin v1.0.0</code></pre><p class="ask">Print this page (Ctrl+P). Missing something? Ask your teacher (the agent).</p></main><script src="../assets/course.js"></script></body></html>

@@ -1,0 +1,17 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Decision tree</title><link rel="stylesheet" href="../assets/style.css"></head><body><main><nav class="top"><a href="../index.html">Syllabus</a><a href="handbook.html">Handbook</a><a href="glossary.html">Glossary</a><a href="cheatsheet.html">Cheatsheet</a><a href="undo-ladder.html">Undo ladder</a><a href="decision-tree.html">Decision tree</a><a href="pr-checklist.html">PR checklist</a></nav><h1>Decision tree</h1><p>Start every incident with <code>git status -sb</code>.</p><pre><code>Symptom                                      -&gt; First move
+-------------------------------------------------------------------------------
+Permission denied / auth failed              -&gt; ssh -vT, add key / new token         (L5)
+Push rejected (fetch first)                  -&gt; git pull --rebase ; git push         (L10)
+Diverged                                     -&gt; pull --rebase (own) / merge (shared) (L10-11)
+Pull blocked by local changes                -&gt; stash, pull, pop                     (L14)
+Conflict markers                             -&gt; edit, add, commit/--continue         (L12-13)
+Wrong branch, unpushed                       -&gt; switch -c new ; reset staging        (L16)
+Detached HEAD                                -&gt; switch -c rescue/x                   (L16)
+Lost commits                                 -&gt; reflog, reset --hard HEAD@{n}        (L17)
+Bad commit pushed                            -&gt; revert                               (L19)
+Bad merge pushed                             -&gt; revert -m 1                          (L19)
+Fix needed on release                        -&gt; cherry-pick -x                       (L20)
+Secret pushed                                -&gt; ROTATE first, then admin/filter-repo (L22)
+Hook declined                                -&gt; feature branch + PR                  (L24)
+PR can&#x27;t merge                               -&gt; read merge checks                    (L7)
+Stacked PR after squash                      -&gt; rebase --onto                        (L23)</code></pre><p class="ask">Print this page (Ctrl+P). Missing something? Ask your teacher (the agent).</p></main><script src="../assets/course.js"></script></body></html>

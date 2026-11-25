@@ -1,0 +1,24 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Git + Bitbucket Handbook: what to do in which situation</title><link rel="stylesheet" href="../assets/style.css"></head><body><main>
+<nav class="top"><a href="../index.html">Syllabus</a><a href="../lessons/0001-four-places.html">Lesson 1</a><a href="decision-tree.html">Decision tree</a><a href="undo-ladder.html">Undo ladder</a><a href="cheatsheet.html">Cheatsheet</a><a href="glossary.html">Glossary</a></nav>
+<h1>Git + Bitbucket Handbook</h1>
+<p>Situation-first. Find your symptom, run the <b>Diagnose</b> commands, then the <b>Do this</b> block. Search or filter below. Print-friendly.</p>
+<div class="card"><b>Golden rules</b>
+<ol><li>Read before you fix: <code>git status -sb</code>, <code>git log --oneline --graph --all -15</code>.</li>
+<li>Unpushed history is yours to rewrite. Pushed shared history is not: use <code>revert</code>.</li>
+<li>Before anything destructive, make a safety branch: <code>git branch backup/x</code>.</li>
+<li>Committed work is almost never lost: <code>git reflog</code>. Uncommitted work is.</li>
+<li>Never <code>--force</code>; use <code>--force-with-lease</code>, and only on your own branch.</li></ol></div>
+<div class="card"><b>Quick decision table</b><pre><code>Symptom                                   -> Section
+Can't push/pull (auth)                    -> Setup &amp; Access
+Push rejected / diverged                  -> Daily Loop
+Conflict markers in files                 -> Branches &amp; Sync
+Committed to the wrong place              -> Daily Loop / Undo &amp; Recover
+Lost commits                              -> Undo &amp; Recover (reflog)
+PR can't merge                            -> Pull Requests
+Secret / giant file committed             -> Security &amp; Big Mistakes</code></pre></div>
+<div class="bar"><input id="q" type="search" placeholder="Search: rejected, rebase, conflict, stash..."><select id="cat"></select></div>
+<p id="count" style="font:14px system-ui;color:var(--mut)"></p>
+<div id="list"></div>
+<p class="ask">Questions or a situation not listed? Ask your teacher (the agent) and it will be added to <code>assets/scenarios.js</code>.</p>
+</main><script src="../assets/scenarios.js"></script><script src="../assets/handbook.js"></script></body></html>
